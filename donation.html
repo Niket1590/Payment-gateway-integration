@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Donate to save</title>
+        <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+    
+            </head>
+            <link href="https://fonts.googleapis.com/css2?family=Baloo+Bhai+2:wght@700&display=swap" rel="stylesheet">
+    <style>
+        body{
+            font-family: 'Baloo Bhai 2', cursive;
+            margin: 0px;
+            padding: 0px;
+            background: url('img/boys-1283786_1920.jpg');
+            height:50%;
+            background-attachment: fixed;
+            background-repeat: no-repeat;
+            background-size: 100% 100%;
+        }
+        .left{
+            display: inline-block;
+            
+            position: absolute;
+            left: 34px;
+            top:0px;
+
+            
+        }
+            .mid{
+display: block;
+width: 35%;
+margin: 8px auto;
+border: 2px solid green;
+border-radius: 45px;
+background-color: rgb(27, 27, 25);
+
+            }
+                .right{
+                    position: absolute;
+                    right: 34px;
+                    top: 20px;
+                    display: inline-block;
+                    
+                    
+
+
+                }
+                .navbar li{
+                    display:inline-block;
+                    font-size: 25px;
+                    
+                }
+                .navbar li a{
+                    color: rgb(252, 252, 252);
+                    text-decoration: none;
+                    padding: 34px 23px;
+                }
+                .navbar li a:hover, .navbar li  a.active{
+                    text-decoration: underline;
+                    color: rgb(201, 209, 201);
+            
+                }
+                .left img{
+                    display: inline-block;
+                    width: 80px;
+                }
+                .left{
+                    font-size: 35px;
+                    color: rgb(150, 85, 31);
+                    text-align: center;
+                    font-family: 'Baloo Bhai 2', cursive;
+                }
+                .btn{
+                    margin: 0px 9px;
+                    background-color: black;
+                    color: blanchedalmond;
+                    padding: 4px 14px;
+                    border: 2px solid grey;
+                    border-radius: 10px;
+                    height: 50px;
+                    font-size: 25px;
+                    cursor: pointer;
+                    font-family: 'Baloo Bhai 2', cursive;
+
+                }
+                .btn:hover{
+                    color:rgb(201, 209, 201) ;
+                }
+                .container{
+                    
+                    margin: 70px 50px;
+                    padding: 2px 2px;
+                    width: 25%;
+                    font-size: 20px;
+                    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+                    color: rgb(249, 252, 249);
+                }
+                .para{
+                    
+                    margin: -100px 50px;
+                    width: 20%;
+                    font-size: 21px;
+                    color: rgb(252, 248, 6);
+                    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+                }
+                .foot{
+                    display: inline-block;
+                    margin: 300px 300px;
+                    font-size: 30px;
+                    background-color: aliceblue;
+                }
+                    
+    </style>
+<body>
+    <header class="header">
+        <div class="left">
+<div>Sparks Foundation</div>
+<img src="img/1519895156650.png" alt="">
+            
+        </div>
+        <div class="mid">
+            
+            <ul class="navbar">
+                <li><a href="">Home</a></li>
+                <li><a href="about.html"target="_blank">About us</a></li>
+                <li><a href="contact.html"target="_blank">Contact us</a></li>
+            </ul>
+            </div>
+        <div class="right">
+            <button id="rzp-button1" class="btn">Donate</button>
+
+        </div>
+    
+        
+    </header>
+    <div class="container">
+        <h1>BE A SYMBOL OF HOPE FOR OTHERS</h1>
+    </div>
+    <div class="para">
+        <p>Make the world a better place for needy people by donating now</p>
+    </div>
+    <footer class="foot">
+        DEVELOPED BY: NIKET KUMAR
+    </footer>
+        
+<script>
+
+var options = {
+    "key": "rzp_test_GPoOWzZ51zVNLp", // Enter the Key ID generated from the Dashboard
+    "amount": "40000", // Amount is in currency subunits. Default currency is INR. Hence, 50000 refers to 50000 paise
+    "currency": "INR",
+    "name": "Acme Corp",
+    "description": "Test Transaction",
+    "image": "https://example.com/your_logo",
+    "order_id": "order_HajLrliBP7vlYv", //This is a sample Order ID. Pass the `id` obtained in the response of Step 1
+    "handler": function (response){
+        alert(response.razorpay_payment_id);
+        alert("Your payment is success");
+        alert(response.razorpay_signature)
+    },
+    "prefill": {
+        "name": "Niket kumar",
+        "email": "niket179@gmail.com",
+        "contact": "7011409038"
+    },
+    "notes": {
+        "address": "Razorpay Corporate Office"
+    },
+    "theme": {
+        "color": "#3399cc"
+    }
+};
+var rzp1 = new Razorpay(options);
+rzp1.on('payment.failed', function (response){
+        alert(response.error.code);
+        alert(response.error.description);
+        alert(response.error.source);
+        alert(response.error.step);
+        alert(response.error.reason);
+        alert(response.error.metadata.order_id);
+        alert(response.error.metadata.payment_id);
+});
+document.getElementById('rzp-button1').onclick = function(e){
+    rzp1.open();
+    e.preventDefault();
+}
+var options = {
+    "key": "rzp_test_GPoOWzZ51zVNLp", // Enter the Key ID generated from the Dashboard
+    "amount": "40000", // Amount is in currency subunits. Default currency is INR. Hence, 50000 refers to 50000 paise
+    "currency": "INR",
+    "name": "Acme Corp",
+    "description": "Test Transaction",
+    "image": "https://example.com/your_logo",
+    "order_id": "order_HYq1EFfIMI3aU5", //This is a sample Order ID. Pass the `id` obtained in the response of Step 1
+    "handler": function (response){
+        alert(response.razorpay_payment_id);
+        alert("Your payment is success");
+        alert(response.razorpay_signature)
+    },
+    "prefill": {
+        "name": "Niket kumar",
+        "email": "niket179@gmail.com",
+        "contact": "7011409038"
+    },
+    "notes": {
+        "address": "Razorpay Corporate Office"
+    },
+    "theme": {
+        "color": "#3399cc"
+    }
+};
+var rzp1 = new Razorpay(options);
+rzp1.on('payment.failed', function (response){
+        alert(response.error.code);
+        alert(response.error.description);
+        alert(response.error.source);
+        alert(response.error.step);
+        alert(response.error.reason);
+        alert(response.error.metadata.order_id);
+        alert(response.error.metadata.payment_id);
+});
+document.getElementById('rzp-button1').onclick = function(e){
+    rzp1.open();
+    e.preventDefault();
+}
+var options = {
+    "key": "rzp_test_GPoOWzZ51zVNLp", // Enter the Key ID generated from the Dashboard
+    "amount": "40000", // Amount is in currency subunits. Default currency is INR. Hence, 50000 refers to 50000 paise
+    "currency": "INR",
+    "name": "Acme Corp",
+    "description": "Test Transaction",
+    "image": "https://example.com/your_logo",
+    "order_id": "order_HYq217NziccYoX", //This is a sample Order ID. Pass the `id` obtained in the response of Step 1
+    "handler": function (response){
+        alert(response.razorpay_payment_id);
+        alert("Your payment is success");
+        alert(response.razorpay_signature)
+    },
+    "prefill": {
+        "name": "Niket kumar",
+        "email": "niket179@gmail.com",
+        "contact": "7011409038"
+    },
+    "notes": {
+        "address": "Razorpay Corporate Office"
+    },
+    "theme": {
+        "color": "#3399cc"
+    }
+};
+var rzp1 = new Razorpay(options);
+rzp1.on('payment.failed', function (response){
+        alert(response.error.code);
+        alert(response.error.description);
+        alert(response.error.source);
+        alert(response.error.step);
+        alert(response.error.reason);
+        alert(response.error.metadata.order_id);
+        alert(response.error.metadata.payment_id);
+});
+document.getElementById('rzp-button1').onclick = function(e){
+    rzp1.open();
+    e.preventDefault();
+}
+var options = {
+    "key": "rzp_test_GPoOWzZ51zVNLp", // Enter the Key ID generated from the Dashboard
+    "amount": "40000", // Amount is in currency subunits. Default currency is INR. Hence, 50000 refers to 50000 paise
+    "currency": "INR",
+    "name": "Acme Corp",
+    "description": "Test Transaction",
+    "image": "https://example.com/your_logo",
+    "order_id": "order_HajTvk5IBrZE3c", //This is a sample Order ID. Pass the `id` obtained in the response of Step 1
+    "handler": function (response){
+        alert(response.razorpay_payment_id);
+        alert("Your payment is success");
+        alert(response.razorpay_signature)
+    },
+    "prefill": {
+        "name": "Niket kumar",
+        "email": "niket179@gmail.com",
+        "contact": "7011409038"
+    },
+    "notes": {
+        "address": "Razorpay Corporate Office"
+    },
+    "theme": {
+        "color": "#3399cc"
+    }
+};
+var rzp1 = new Razorpay(options);
+rzp1.on('payment.failed', function (response){
+        alert(response.error.code);
+        alert(response.error.description);
+        alert(response.error.source);
+        alert(response.error.step);
+        alert(response.error.reason);
+        alert(response.error.metadata.order_id);
+        alert(response.error.metadata.payment_id);
+});
+document.getElementById('rzp-button1').onclick = function(e){
+    rzp1.open();
+    e.preventDefault();
+}
+var options = {
+    "key": "rzp_test_GPoOWzZ51zVNLp", // Enter the Key ID generated from the Dashboard
+    "amount": "40000", // Amount is in currency subunits. Default currency is INR. Hence, 50000 refers to 50000 paise
+    "currency": "INR",
+    "name": "Acme Corp",
+    "description": "Test Transaction",
+    "image": "https://example.com/your_logo",
+    "order_id": "order_HajVUg4pHGwyn6", //This is a sample Order ID. Pass the `id` obtained in the response of Step 1
+    "handler": function (response){
+        alert(response.razorpay_payment_id);
+        alert("Your payment is success");
+        alert(response.razorpay_signature)
+    },
+    "prefill": {
+        "name": "Niket kumar",
+        "email": "niket179@gmail.com",
+        "contact": "7011409038"
+    },
+    "notes": {
+        "address": "Razorpay Corporate Office"
+    },
+    "theme": {
+        "color": "#3399cc"
+    }
+};
+var rzp1 = new Razorpay(options);
+rzp1.on('payment.failed', function (response){
+        alert(response.error.code);
+        alert(response.error.description);
+        alert(response.error.source);
+        alert(response.error.step);
+        alert(response.error.reason);
+        alert(response.error.metadata.order_id);
+        alert(response.error.metadata.payment_id);
+});
+document.getElementById('rzp-button1').onclick = function(e){
+    rzp1.open();
+    e.preventDefault();
+}
+var options = {
+    "key": "rzp_test_GPoOWzZ51zVNLp", // Enter the Key ID generated from the Dashboard
+    "amount": "40000", // Amount is in currency subunits. Default currency is INR. Hence, 50000 refers to 50000 paise
+    "currency": "INR",
+    "name": "Acme Corp",
+    "description": "Test Transaction",
+    "image": "https://example.com/your_logo",
+    "order_id": "order_HakKbmTDVTktoZ", //This is a sample Order ID. Pass the `id` obtained in the response of Step 1
+    "handler": function (response){
+        alert(response.razorpay_payment_id);
+        alert("Your payment is success");
+        alert(response.razorpay_signature)
+    },
+    "prefill": {
+        "name": "Niket kumar",
+        "email": "niket179@gmail.com",
+        "contact": "7011409038"
+    },
+    "notes": {
+        "address": "Razorpay Corporate Office"
+    },
+    "theme": {
+        "color": "#3399cc"
+    }
+};
+var rzp1 = new Razorpay(options);
+rzp1.on('payment.failed', function (response){
+        alert(response.error.code);
+        alert(response.error.description);
+        alert(response.error.source);
+        alert(response.error.step);
+        alert(response.error.reason);
+        alert(response.error.metadata.order_id);
+        alert(response.error.metadata.payment_id);
+});
+document.getElementById('rzp-button1').onclick = function(e){
+    rzp1.open();
+    e.preventDefault();
+}
+</script>
+    
+    
+</body>
+</html>
